@@ -6,7 +6,7 @@ function onReady() {
         const newToDoText = document.getElementById("newToDoText");
         if (!newToDoText.value) {
             return;
-        };
+        }
         toDos.push({
             title: newToDoText.value,
             complete: false
@@ -16,7 +16,7 @@ function onReady() {
     }
 
     function renderTheUI() {
-        const toDoList = getElementById("toDoList");
+        const toDoList = document.getElementById("toDoList");
         toDoList.textContent = '';
         toDos.forEach(function (toDo) {
             const newLi = document.createElement('li');
@@ -28,15 +28,15 @@ function onReady() {
             toDoList.appendChild(newLi);
             newLi.appendChild(checkbox);
         });
-    }
+    };
     addToDoForm.addEventListener('submit', () => {
         event.preventDefault();
         createNewToDo();
-    })
+    });
 
     renderTheUI();
 }
 
 window.onload = function () {
     onReady();
-}
+};
