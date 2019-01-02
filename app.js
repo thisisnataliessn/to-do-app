@@ -19,24 +19,25 @@ function onReady() {
     }
 
     function renderTheUI() {
-        const deleteButton = document.createElement('button');
-        const buttonText = document.createTextNode('Delete');
         const toDoList = document.getElementById("toDoList");
         toDoList.textContent = '';
         toDos.forEach(function (toDo) {
+            const deleteButton = document.createElement('button');
+            const buttonText = document.createTextNode('Delete');
             const newLi = document.createElement('li');
             const checkbox = document.createElement('input');
             checkbox.type = "checkbox";
-            //add the toDo's title text to newLI
+            checkbox.className = "chk";
+            //add the toDo's title text to newLi
             newLi.textContent = toDo.title;
             //update the DOM
             toDoList.appendChild(newLi);
             newLi.appendChild(checkbox);
             deleteButton.appendChild(buttonText);
-            newLi.appendChild(deleteButton);
-      
+            newLi.appendChild(deleteButton);                
         });
-    };
+     };    
+     
     addToDoForm.addEventListener('submit', () => {
         event.preventDefault();
         createNewToDo();
