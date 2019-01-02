@@ -24,31 +24,32 @@ function onReady() {
         toDos.forEach(function (toDo) {
             const deleteButton = document.createElement('button');
             const buttonText = document.createTextNode('Delete');
+            deleteButton.appendChild(buttonText);
+            deleteButton.addEventListener('click', () => {
+                toDos = toDos.filter(function(item){
+                    return item.id !== toDo.id;
+                })
+                renderTheUI();
+            });
             const newLi = document.createElement('li');
             const checkbox = document.createElement('input');
+            newLi.className = "task";
             checkbox.type = "checkbox";
             //add the toDo's title text to newLi
             newLi.textContent = toDo.title;
             //update the DOM
             toDoList.appendChild(newLi);
             newLi.appendChild(checkbox);
-            deleteButton.appendChild(buttonText);
             newLi.appendChild(deleteButton);      
         });
     };
 
-    function deleteToDo(idToDelete) {
-        toDos = toDos.filter( (toDo) => toDo.id !== idToDelete);
-    };
-   
      addToDoForm.addEventListener('submit', () => {
         event.preventDefault( );
         createNewToDo();
     });
 
-    deleteButton.addEventListener('click', deleteToDo(todo.id)); 
-
-    renderTheUI();
+        renderTheUI();
 }
 
 window.onload = function () {
