@@ -27,24 +27,27 @@ function onReady() {
             const newLi = document.createElement('li');
             const checkbox = document.createElement('input');
             checkbox.type = "checkbox";
-            checkbox.className = "chk";
             //add the toDo's title text to newLi
             newLi.textContent = toDo.title;
             //update the DOM
             toDoList.appendChild(newLi);
             newLi.appendChild(checkbox);
             deleteButton.appendChild(buttonText);
-            newLi.appendChild(deleteButton);                
+            newLi.appendChild(deleteButton);      
         });
-     };    
-     
-    addToDoForm.addEventListener('submit', () => {
-        event.preventDefault();
+    };
+
+    function deleteToDo(idToDelete) {
+        toDos = toDos.filter( (toDo) => toDo.id !== idToDelete);
+    };
+   
+     addToDoForm.addEventListener('submit', () => {
+        event.preventDefault( );
         createNewToDo();
     });
-    deleteButton.addEventListener('click', () => {
-        renderTheUI();
-    })
+
+    deleteButton.addEventListener('click', deleteToDo(todo.id), false) 
+
     renderTheUI();
 }
 
