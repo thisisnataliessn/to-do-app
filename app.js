@@ -46,7 +46,7 @@ function onReady() {
         createNewToDo();
     });
 
-    deleteButton.addEventListener('click', deleteToDo(todo.id), false) 
+    deleteButton.addEventListener('click', deleteToDo(todo.id)); 
 
     renderTheUI();
 }
