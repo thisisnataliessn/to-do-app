@@ -1,5 +1,5 @@
-#To-Do-App
+# To-Do-App
 
-This is a project to practice utilizing JavaScript event handlers.
+I used this project to practice utilizing JavaScript event handlers.
 
 <img src="images/screenshot.JPG">
